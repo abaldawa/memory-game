@@ -1,0 +1,56 @@
+.game-result-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+            ". heading ."
+            "errorLabel errorCount errorCount"
+            "selectionLable selectionDetails selectionDetails"
+            ". replay .";
+    margin: 1rem;
+}
+
+.game-result__heading {
+    grid-area: heading;
+    justify-self: flex-start;
+    margin: 0;
+}
+
+.game-result__error-label {
+    grid-area: errorLabel;
+}
+
+.game-result__error-count {
+    grid-area: errorCount;
+}
+
+.game-result__selection-label {
+    grid-area: selectionLable;
+    align-self: center;
+}
+
+.game-result__selection-details {
+    grid-area: selectionDetails;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-result__replay-button {
+    grid-area: replay;
+    padding: 0.5rem;
+    place-self: flex-start;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.padding--1rem {
+    padding: 1rem;
+}
