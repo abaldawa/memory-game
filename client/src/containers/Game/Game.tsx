@@ -14,7 +14,6 @@ const Game: React.FC = () => {
       showCard: boolean;
       value: number;
       incorrectSelection?: boolean;
-      clickedAt?: Date;
     }[]
   >();
   const [expectedAnswer, setExpectedAnswer] = useState<number[]>();
@@ -91,7 +90,6 @@ const Game: React.FC = () => {
                 ...prevCardObj,
                 showCard: true,
                 incorrectSelection: false,
-                clickedAt: new Date(),
               };
             }
             return { ...prevCardObj };

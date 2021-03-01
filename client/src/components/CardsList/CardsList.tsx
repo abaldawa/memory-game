@@ -6,7 +6,6 @@ type CardsListType = {
   showCard: boolean;
   value: number;
   incorrectSelection?: boolean;
-  clickedAt?: Date;
 }[];
 
 interface CardsListProps {
