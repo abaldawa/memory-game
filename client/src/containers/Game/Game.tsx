@@ -78,7 +78,6 @@ const Game: React.FC = () => {
   };
 
   const onCardClick = (cardValue: number) => {
-    // debugger;
     if (expectedAnswer?.length) {
       const changedIndex = userAnswers.length;
 
