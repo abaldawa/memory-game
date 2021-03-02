@@ -15,7 +15,11 @@ import {
 const gameReducer = (state = gameState, action: GameActionTypes): GameState => {
   switch (action.type) {
     case SET_NO_OF_CARDS:
-      return { ...state, noOfCards: action.payload };
+      return {
+        ...state,
+        noOfCards: action.payload,
+        cards: action.payload !== 0 ? state.cards : undefined,
+      };
     case SET_UNIQUE_RANDOM_NUMBERS:
       return {
         ...state,
