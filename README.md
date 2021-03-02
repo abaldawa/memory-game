@@ -13,4 +13,4 @@
 4. go to http://localhost:3000 to see the UI
 
 ## Server REST API:
-1. `GET /numbers/random?start=<number>&end=<number>&size=<number>` -> Get array of unique random numbers based on query params
+1. `GET /numbers/random?start=<number>&end=<number>&size=<number>` -> Responds with array of unique random numbers based on query params
