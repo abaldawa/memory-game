@@ -38,7 +38,7 @@ const GameResult: React.FC<GameResultProps> = (props) => {
         className={`${classes["game-result__selection-details"]} ${classes["padding--1rem"]}`}
       >
         {selectionOrder.map((selection) => (
-          <p>
+          <p key={selection.selectedCard}>
             <strong>{selection.selectedCard}</strong>
             {" -> "}
             <i>{getFormattedDate(selection.selectionDate)}</i>
