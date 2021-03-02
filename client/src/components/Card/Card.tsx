@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./Card.module.css";
 
 interface CardProps {
   value: number;
   showCard: boolean;
   incorrectSelection?: boolean;
+  children?: never;
   onCardClick(cardValue: number): void;
 }
 
