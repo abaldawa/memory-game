@@ -1,15 +1,13 @@
 import React from "react";
 import { getFormattedDate } from "../../utils/date";
 import classes from "./GameResult.module.css";
+import type { GameState } from "../../store/game/state";
 
 interface GameResultProps {
   showResult: boolean;
-  numberOfErrors: number;
+  numberOfErrors: GameState["totalSelectionError"];
+  selectionOrder: GameState["userAnswers"];
   children?: never;
-  selectionOrder: Array<{
-    selectedCard: number;
-    selectionDate: Date;
-  }>;
   onReplayHandler(): void;
 }
 

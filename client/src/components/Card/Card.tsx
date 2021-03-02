@@ -1,15 +1,13 @@
 import React from "react";
 import classes from "./Card.module.css";
+import type { Card } from "../../store/game/state";
 
-interface CardProps {
-  value: number;
-  showCard: boolean;
-  incorrectSelection?: boolean;
+interface CardProps extends Card {
   children?: never;
   onCardClick(cardValue: number): void;
 }
 
-const Card: React.FC<CardProps> = (props) => {
+const CardComp: React.FC<CardProps> = (props) => {
   const { value, onCardClick, showCard, incorrectSelection } = props;
 
   return (
@@ -38,4 +36,4 @@ const Card: React.FC<CardProps> = (props) => {
   );
 };
 
-export default Card;
+export default CardComp;

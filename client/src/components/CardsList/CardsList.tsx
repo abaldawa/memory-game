@@ -1,16 +1,11 @@
 import React from "react";
 import classes from "./CardsList.module.css";
-import Card from "../Card/Card";
-
-type CardsListType = {
-  showCard: boolean;
-  value: number;
-  incorrectSelection?: boolean;
-  children?: never;
-}[];
+import CardComp from "../Card/Card";
+import type { Card } from "../../store/game/state";
 
 interface CardsListProps {
-  cardsList?: CardsListType;
+  cardsList?: Card[];
+  children?: never;
   onCardClick(cardValue: number): void;
 }
 
@@ -20,7 +15,7 @@ const CardsList: React.FC<CardsListProps> = (props) => {
   return cardsList ? (
     <div className={classes["cards-list"]}>
       {cardsList.map((cardObj) => (
-        <Card key={cardObj.value} onCardClick={onCardClick} {...cardObj} />
+        <CardComp key={cardObj.value} onCardClick={onCardClick} {...cardObj} />
       ))}
     </div>
   ) : null;
