@@ -1,0 +1,8 @@
+.game-heading {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #7b2a2a;
+    margin-bottom: 0.5rem;
+}

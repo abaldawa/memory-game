@@ -18,7 +18,9 @@ const GameResult: React.FC<GameResultProps> = (props) => {
 
   return showResult ? (
     <div className={classes["game-result-container"]}>
-      <h3 className={classes["game-result__heading"]}>Game Result:</h3>
+      <h3 className={classes["game-result__heading"]}>
+        Game Result (Scrollable):
+      </h3>
       <div
         className={`${classes["game-result__error-label"]} ${classes["padding--1rem"]}`}
       >

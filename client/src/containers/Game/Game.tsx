@@ -2,7 +2,9 @@ import React, { useEffect, useReducer } from "react";
 import classes from "./Game.module.css";
 import { gameReducer } from "../../store/game/reducer";
 import { gameState } from "../../store/game/state";
+import GameHeading from "../../components/GameHeading/GameHeading";
 import CardsSelection from "../../components/CardsSelection/CardsSelection";
+import GameDescription from "../../components/GameDescription/GameDescription";
 import CardsList from "../../components/CardsList/CardsList";
 import GameResult from "../../components/GameResult/GameResult";
 import { getUniqueRandomNumbers } from "../../serverApi/numbers";
@@ -32,6 +34,8 @@ const Game: React.FC = () => {
     userAnswers,
   } = state;
 
+  let gameDescription: string | undefined;
+
   const onGameStart = () => {
     dispatch({ type: GAME_STARTED });
   };
@@ -52,6 +56,12 @@ const Game: React.FC = () => {
     dispatch({ type: REPLAY_GAME });
   };
 
+  /**
+   * This useEffect handler clears any incorrect
+   * card clicks so that visually the cards appear
+   * back to normal after 150 ms of clicking an
+   * incorrect card
+   */
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
@@ -66,6 +76,10 @@ const Game: React.FC = () => {
     };
   }, [totalSelectionError]);
 
+  /**
+   * This useEffect handler reacts to cards selection and
+   * fetches the unique random numbers array from the server
+   */
   useEffect(() => {
     if (noOfCards) {
       getUniqueRandomNumbers<number[]>(10, 90, noOfCards)
@@ -86,6 +100,11 @@ const Game: React.FC = () => {
     }
   }, [noOfCards]);
 
+  /**
+   * This useEffect handler monitors when the game
+   * is completed and dispatch game completed action
+   * by listening to userAnswers and expectedAnswers.
+   */
   useEffect(() => {
     if (
       userAnswers.length &&
@@ -96,8 +115,17 @@ const Game: React.FC = () => {
     }
   }, [userAnswers, expectedAnswer]);
 
+  if (noOfCards) {
+    if (gameStarted) {
+      gameDescription = "Click the cards in the ascending order.";
+    } else {
+      gameDescription = "Remember the cards sequence in ascending order";
+    }
+  }
+
   return (
     <div className={classes["game-container"]}>
+      <GameHeading text="Memory Game" />
       <CardsSelection
         disableCardsSelection={gameStarted}
         noOfCardsArr={noOfCardsArr}
@@ -107,6 +135,7 @@ const Game: React.FC = () => {
         onGameStart={onGameStart}
         selectedNoOfCards={noOfCards}
       />
+      <GameDescription text={gameDescription} />
       <CardsList onCardClick={onCardClick} cardsList={cards} />
       <GameResult
         numberOfErrors={totalSelectionError}
