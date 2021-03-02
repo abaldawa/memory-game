@@ -10,7 +10,6 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = (props) => {
   const { value, onCardClick, showCard, incorrectSelection } = props;
-  const classArr = [classes["card__elem"]];
 
   return (
     <div className={classes.card}>
@@ -29,7 +28,7 @@ const Card: React.FC<CardProps> = (props) => {
             ${classes.back}
             ${incorrectSelection ? classes["incorrect-selection"] : ""}
           `}
-          onClick={() => onCardClick(value)}
+          onClick={() => !showCard && onCardClick(value)}
         >
           Click Me
         </div>
