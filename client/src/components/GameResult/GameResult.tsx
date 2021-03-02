@@ -40,7 +40,7 @@ const GameResult: React.FC<GameResultProps> = (props) => {
         {selectionOrder.map((selection) => (
           <p>
             <strong>{selection.selectedCard}</strong>
-            {"->"}
+            {" -> "}
             <i>{getFormattedDate(selection.selectionDate)}</i>
           </p>
         ))}
