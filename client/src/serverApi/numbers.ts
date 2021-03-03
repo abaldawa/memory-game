@@ -1,10 +1,10 @@
 const GET_RANDOM_NUMBERS = "/numbers/random";
 
-const getUniqueRandomNumbers = async <T>(
+const getUniqueRandomNumbers = async (
   start: number,
   end: number,
   size: number
-): Promise<T> => {
+): Promise<number[]> => {
   const res = await fetch(
     `${GET_RANDOM_NUMBERS}?start=${start}&end=${end}&size=${size}`
   );

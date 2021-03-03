@@ -82,7 +82,7 @@ const Game: React.FC = () => {
    */
   useEffect(() => {
     if (noOfCards) {
-      getUniqueRandomNumbers<number[]>(10, 90, noOfCards)
+      getUniqueRandomNumbers(10, 90, noOfCards)
         .then((randomNumbers) => {
           dispatch({
             type: SET_UNIQUE_RANDOM_NUMBERS,
