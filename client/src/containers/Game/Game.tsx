@@ -57,7 +57,7 @@ const Game: React.FC = () => {
   };
 
   /**
-   * This useEffect handler clears any incorrect
+   * This useEffect hook clears any incorrect
    * card clicks so that visually the cards appear
    * back to normal after 150 ms of clicking an
    * incorrect card
@@ -77,7 +77,7 @@ const Game: React.FC = () => {
   }, [totalSelectionError]);
 
   /**
-   * This useEffect handler reacts to cards selection and
+   * This useEffect hook reacts to cards selection and
    * fetches the unique random numbers array from the server
    */
   useEffect(() => {
@@ -101,7 +101,7 @@ const Game: React.FC = () => {
   }, [noOfCards]);
 
   /**
-   * This useEffect handler monitors when the game
+   * This useEffect hook monitors when the game
    * is completed and dispatch game completed action
    * by listening to userAnswers and expectedAnswers.
    */
